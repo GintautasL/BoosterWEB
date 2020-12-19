@@ -22,7 +22,7 @@ const HomepagePageContainerComponent: React.FunctionComponent<AllProps> = ({
   useEffect(() => {
     boosterProgramsRequest()
   }, [])
-  return <HomepageComponent graffities={boosterPrograms} />
+  return <HomepageComponent boosterPrograms={boosterPrograms} />
 }
 
 const mapStateToProps = ({ boosterProgram }: ApplicationState) => ({

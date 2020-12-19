@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { MyGraffitiesPageComponent } from '.'
+import { MyBoosterProgramsPageComponent } from '.'
 import { ApplicationState } from '../../../store'
 import { myBoosterProgramsRequest } from '../../../store/boosterPrograms/actions'
 import { BoosterProgram } from '../../../store/boosterPrograms/types'
@@ -22,7 +22,7 @@ const MyGraffitiesPageContainerComponent: React.FunctionComponent<AllProps> = ({
   useEffect(() => {
     myBoosterProgramsRequest()
   }, [])
-  return <MyGraffitiesPageComponent boosterPrograms={boosterPrograms} />
+  return <MyBoosterProgramsPageComponent boosterPrograms={boosterPrograms} />
 }
 
 const mapStateToProps = ({ boosterProgram }: ApplicationState) => ({

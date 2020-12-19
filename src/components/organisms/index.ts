@@ -1,5 +1,5 @@
 export * from './LoginForm'
 export * from './RegisterForm'
-export * from './CreateGraffitiForm'
+export * from './CreateBoosterProgramForm'
 export * from './EditUserForm'
 export * from './EditBoosterProgramForm'

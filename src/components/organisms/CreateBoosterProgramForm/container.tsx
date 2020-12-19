@@ -54,7 +54,7 @@ const mapDispatchToProps = dispatch => ({
     dispatch(createBoosterProgramRequest(createGraffitiData)),
 })
 
-export const CreateGraffitiForm = connect(
+export const CreateBoosterProgramForm = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(CreateGraffitiFormContainerComponent)

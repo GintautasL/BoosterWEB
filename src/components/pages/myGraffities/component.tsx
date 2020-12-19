@@ -4,28 +4,28 @@ import { color } from '../../../theme'
 import { Button } from '../../atoms'
 import { pages } from '../pagesConfig'
 
-const rowStructure = graffiti => ({
+const rowStructure = boosterProgram => ({
   rowContents: [
     {
       title: 'Name',
-      content: (graffiti && graffiti.name) || '',
+      content: (boosterProgram && boosterProgram.name) || '',
     },
     {
       title: 'Longtitude',
-      content: graffiti && graffiti.lng,
+      content: boosterProgram && boosterProgram.lng,
     },
     {
       title: 'Latitude',
-      content: graffiti && graffiti.lat,
+      content: boosterProgram && boosterProgram.lat,
     },
     {
       title: 'Created at',
-      content: graffiti && graffiti.created_at,
+      content: boosterProgram && boosterProgram.created_at,
     },
   ],
 })
 
-export const MyGraffitiesPageComponent = ({ graffities = [] }) => (
+export const MyBoosterProgramsPageComponent = ({ boosterPrograms = [] }) => (
   <div className="page-wrapper">
     <div>
       <h1>My booster programs</h1>
@@ -35,9 +35,9 @@ export const MyGraffitiesPageComponent = ({ graffities = [] }) => (
     </div>
     <div className="tableWrapper">
       <Table
-        data={graffities}
+        data={boosterPrograms}
         rowStructure={rowStructure}
-        notFoundText="You don't have any graffities"
+        notFoundText="You don't have any booster programs"
       />
     </div>
     <style jsx>

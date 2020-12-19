@@ -5,21 +5,21 @@ import { EditGraffitiPageComponent } from '.'
 import { ApplicationState } from '../../../store'
 import { boosterProgramRequest } from '../../../store/boosterPrograms/actions'
 import { AdminUser } from '../../../store/users/types'
-import { BoosterProgram } from '../../../store/boosterPrograms/types'
+import { FullBoosterProgram } from '../../../store/boosterPrograms/types'
 
 interface PropsFromDispatch {
   boosterProgramRequest: typeof boosterProgramRequest
 }
 
 interface PropsFromState {
-  graffiti: BoosterProgram
+  boosterProgram: FullBoosterProgram
 }
 
 type AllProps = PropsFromDispatch & PropsFromState
 
 const EditGraffitiPageContainerComponent: React.FunctionComponent<AllProps> = ({
   boosterProgramRequest,
-  graffiti,
+  boosterProgram,
 }) => {
   const router = useRouter()
 
@@ -28,7 +28,7 @@ const EditGraffitiPageContainerComponent: React.FunctionComponent<AllProps> = ({
   }, [])
   return (
     <EditGraffitiPageComponent
-      graffiti={graffiti}
+    boosterProgram={boosterProgram}
     />
   )
 }
@@ -38,7 +38,7 @@ const mapStateToProps = ({ boosterProgram }: ApplicationState) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  graffitiRequest: id => dispatch(boosterProgramRequest(id)),
+  boosterProgramRequest: id => dispatch(boosterProgramRequest(id)),
 })
 
 export const EditGraffitiPage = connect(

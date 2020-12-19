@@ -29,7 +29,7 @@ export function* BoosterProgramesRequest() {
 
 export function* adminBoosterProgramsRequest(setState) {
   try {
-    const payload = yield call(api, config.apiMethods.GET, 'graffittis')
+    const payload = yield call(api, config.apiMethods.GET, 'boosterprogram')
     setState(payload)
     yield put(actions.adminBoosterProgramsSuccess(payload))
   } catch (e) {
@@ -40,7 +40,7 @@ export function* adminBoosterProgramsRequest(setState) {
 
 export function* createBoosterProgramRequest(createBoosterProgramData) {
   try {
-    yield call(api, config.apiMethods.POST, 'graffittis', createBoosterProgramData)
+    yield call(api, config.apiMethods.POST, 'boosterprogram', createBoosterProgramData)
     Router.push(pages.myBoosterPrograms.path)
     yield put(actions.createBoosterProgramSuccess())
   } catch (e) {
@@ -51,7 +51,7 @@ export function* createBoosterProgramRequest(createBoosterProgramData) {
 
 export function* editBoosterProgramRequest(editBoosterProgramData, id) {
   try {
-    yield call(api, config.apiMethods.PUT, `graffittis/${id}`, editBoosterProgramData)
+    yield call(api, config.apiMethods.PUT, `boosterprogram/${id}`, editBoosterProgramData)
     yield put(actions.editBoosterProgramSuccess())
   } catch (e) {
     const errors = yield e

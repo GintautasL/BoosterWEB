@@ -8,7 +8,7 @@ import { FieldError } from '../../../store/general/types'
 import { ApplicationState } from '../../../store'
 import { EditGraffitiFormComponent } from './component'
 import { editBoosterProgramRequest } from '../../../store/boosterPrograms/actions'
-import { BoosterProgram } from '../../../store/boosterPrograms/types'
+import { BoosterProgram, FullBoosterProgram } from '../../../store/boosterPrograms/types'
 
 interface PropsFromDispatch {
   editBoosterProgramRequest: typeof editBoosterProgramRequest
@@ -17,39 +17,37 @@ interface PropsFromDispatch {
 interface PropsFromState {
   loading: Boolean
   errors?: FieldError[]
-  graffiti: BoosterProgram
+  boosterProgram: FullBoosterProgram
 }
 
 type AllProps = PropsFromState & PropsFromDispatch
 
-const initialValues = graffiti => ({
-  name: graffiti.name,
-  description: graffiti.description,
-  position: {
-    lat: graffiti.lat,
-    lng: graffiti.lng,
-  },
+const initialValues = (boosterProgram: FullBoosterProgram) => ({
+  description: boosterProgram.description,
+  target_elo: boosterProgram.target_elo,
+  starting_elo: boosterProgram.starting_elo,
+  price: boosterProgram.price,
 })
 
 const EditGraffitiFormContainerComponent: React.FunctionComponent<AllProps> = ({
   editBoosterProgramRequest,
   loading,
-  graffiti,
+  boosterProgram,
   errors,
 }) => {
   const router = useRouter()
   const onSubmit = async values => {
-    const graffitiEditData = {
+    const boosterProgramEditData = {
       starting_elo: values.starting_elo,
       target_elo: values.target_elo,
       price: values.price,
       description: values.description,
     }
-    editBoosterProgramRequest(graffitiEditData, router.query.id)
+    editBoosterProgramRequest(boosterProgramEditData, router.query.id)
   }
 
-  return graffiti ? (
-    <Formik onSubmit={onSubmit} initialValues={initialValues(graffiti)}>
+  return boosterProgram ? (
+    <Formik onSubmit={onSubmit} initialValues={initialValues(boosterProgram)}>
       <EditGraffitiFormComponent errors={errors} />
     </Formik>
   ) : (
@@ -63,11 +61,11 @@ const mapStateToProps = ({ users }: ApplicationState) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  editBoosterProgramRequest: (graffitiEditData, id) =>
-    dispatch(editBoosterProgramRequest(graffitiEditData, id)),
+  editBoosterProgramRequest: (boosterProgramEditData, id) =>
+    dispatch(editBoosterProgramRequest(boosterProgramEditData, id)),
 })
 
-export const EditGraffitiForm = connect(
+export const EditBoosterProgramForm = connect(
   mapStateToProps,
   mapDispatchToProps,
 )(EditGraffitiFormContainerComponent)

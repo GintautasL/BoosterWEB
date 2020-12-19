@@ -21,7 +21,7 @@ const rowStructure = boosterProgram => ({
   ],
 })
 
-export const MyGraffitiesPageComponent = ({ boosterPrograms = [] }) => (
+export const MyBoosterProgramsPageComponent = ({ boosterPrograms = [] }) => (
   <div className="page-wrapper">
     <div>
       <h1>My booster programs</h1>
@@ -33,7 +33,7 @@ export const MyGraffitiesPageComponent = ({ boosterPrograms = [] }) => (
       <Table
         data={boosterPrograms}
         rowStructure={rowStructure}
-        notFoundText="You don't have any boosterPrograms"
+        notFoundText="You don't have any booster programs"
       />
     </div>
     <style jsx>

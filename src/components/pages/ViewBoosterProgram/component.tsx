@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
-import { get } from 'lodash'
 import { FullBoosterProgram } from '../../../store/boosterPrograms/types'
 import StarRating from 'react-star-rating-component'
-import config from '../../../config'
 import { color } from '../../../theme'
 import { Button } from '../../atoms'
 import { Table, Modal } from '../../molecules'
@@ -10,17 +8,7 @@ import { CreateRatingForm } from '../../organisms/RateBoosterProgramForm'
 
 interface Props {
   boosterProgram: FullBoosterProgram
-  graffitiRequest: Function
-}
-
-const googleMapsContainerStyles = {
-  height: '100%',
-}
-
-const getMainPhotoIndex = boosterProgram => {
-  return get(boosterProgram, 'photos', []).findIndex(
-    upload => upload.id === boosterProgram.thumbnail,
-  )
+  boosterProgramRequest: Function
 }
 
 const rowStructure = rating => ({
@@ -47,13 +35,26 @@ const rowStructure = rating => ({
   ],
 })
 
-export const ViewBoosterProgramPageComponent: React.FunctionComponent<Props> = ({
+const lol = {
+  id: 10,
+  starting_elo: 'start elo',
+  target_elo: 'target',
+  price: 51,
+  description: 'descr',
+  totalRating: 10,
+  totalRated: 1,
+  latestRatings: [],
+}
+
+export const ViewBoosterProgramPageComponent: React.FunctionComponent<
+  Props
+> = ({
   boosterProgram,
-  graffitiRequest,
+  boosterProgramRequest,
 }) => {
   const [ratingModalOpen, setRatingModalOpen] = useState(false)
   return (
-    boosterProgram && (
+    (boosterProgram && (
       <div className="pageWrapper">
         <div className="starRatingWrapper">
           <StarRating
@@ -62,14 +63,27 @@ export const ViewBoosterProgramPageComponent: React.FunctionComponent<Props> = (
             value={boosterProgram.totalRating / boosterProgram.totalRated}
             emptyStarColor={color('light', 300)}
           />
-          <div>{`(${boosterProgram.totalRating / boosterProgram.totalRated || 0}/5)`}</div>
+          <div>{`(${boosterProgram.totalRating / boosterProgram.totalRated ||
+            0}/5)`}</div>
         </div>
 
         <div className="upperContent">
-          <div className="sliderWrapper">
-            
+          <div className="left-info">
+            <div className="text-one-line">
+            <h3 className="fixed-width">Starting Elo: </h3>
+            <h3>{boosterProgram.starting_elo}</h3>
+            </div>
+            <div className="text-one-line">
+            <h3 className="fixed-width">Target Elo: </h3>
+            <h3>{boosterProgram.target_elo}</h3>
+            </div>
+            <div className="text-one-line">
+            <h3 className="fixed-width">Price:</h3>
+            <h3>{boosterProgram.price} €</h3>
+            </div>
           </div>
           <div className="rightContent">
+            <h3>Description</h3>
             <h4>{boosterProgram.description}</h4>
           </div>
         </div>
@@ -87,9 +101,9 @@ export const ViewBoosterProgramPageComponent: React.FunctionComponent<Props> = (
               transition
               handleModalClose={() => setRatingModalOpen(false)}>
               <CreateRatingForm
-                graffitiId={boosterProgram.id}
+                boosterProgramId={boosterProgram.id}
                 closeModal={() => setRatingModalOpen(false)}
-                graffitiRequest={graffitiRequest}
+                boosterProgramRequest={boosterProgramRequest}
               />
             </Modal>
           </div>
@@ -104,6 +118,12 @@ export const ViewBoosterProgramPageComponent: React.FunctionComponent<Props> = (
         </div>
         <style jsx>
           {`
+          .text-one-line {
+            display: flex;
+          }
+          .fixed-width {
+            width: 150px;
+          }
             .ratingsWrapper {
               margin-top: 15px;
             }
@@ -128,7 +148,7 @@ export const ViewBoosterProgramPageComponent: React.FunctionComponent<Props> = (
             label {
               font-size: 18px;
             }
-            .sliderWrapper {
+            .left-info {
               width: 500px;
               height: max-content;
             }
@@ -148,9 +168,11 @@ export const ViewBoosterProgramPageComponent: React.FunctionComponent<Props> = (
                 ${color('light', 700)}
               );
               border-radius: 8px;
+              height: 100%;
             }
             h1,
             h2,
+            h3,
             h4 {
               color: ${color('light', 300)};
             }
@@ -161,6 +183,6 @@ export const ViewBoosterProgramPageComponent: React.FunctionComponent<Props> = (
           `}
         </style>
       </div>
-    ) || <div>Booster program not found</div>
+    )) || <div>Booster program not found</div>
   )
 }

@@ -29,7 +29,7 @@ const ViewGraffitiPageContainerComponent: React.FunctionComponent<AllProps> = ({
   return (
     <ViewBoosterProgramPageComponent
       boosterProgram={fullBoosterProgram}
-      graffitiRequest={() => boosterProgramRequest(router.query.id)}
+      boosterProgramRequest={() => boosterProgramRequest(router.query.id)}
     />
   )
 }

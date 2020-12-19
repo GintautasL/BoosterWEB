@@ -30,24 +30,24 @@ const usersRowStructure = user => ({
   ],
 })
 
-const graffitiesRowStructure = graffiti => ({
+const boosterProgramRowStructure = boosterProgram => ({
   rowContents: [
     {
       title: 'Name',
-      content: (graffiti && graffiti.name) || '',
+      content: (boosterProgram && boosterProgram.name) || '',
     },
     {
       title: 'Description',
-      content: graffiti && graffiti.description,
+      content: boosterProgram && boosterProgram.description,
     },
     {
       title: 'Created at',
-      content: graffiti && graffiti.created_at,
+      content: boosterProgram && boosterProgram.created_at,
     },
     {
       title: '',
-      content: graffiti && (
-        <NextJSLink href={`${pages.editBoosterProgram.path}/${graffiti.id}`}>
+      content: boosterProgram && (
+        <NextJSLink href={`${pages.editBoosterProgram.path}/${boosterProgram.id}`}>
           <Button>Edit</Button>
         </NextJSLink>
       ),
@@ -57,7 +57,7 @@ const graffitiesRowStructure = graffiti => ({
 
 const tabs = {
   users: { id: 1, name: 'Users' },
-  graffities: { id: 2, name: 'Graffities' },
+  boosterPrograms: { id: 2, name: 'Booster Programs' },
 }
 
 export class AdminPanelPageComponent extends React.Component<any, any> {
@@ -80,9 +80,9 @@ export class AdminPanelPageComponent extends React.Component<any, any> {
           () => adminUsersRequest(payload => this.setState({ data: payload })),
         )
       }
-      if (id === tabs.graffities.id) {
+      if (id === tabs.boosterPrograms.id) {
         this.setState(
-          { selectedTab: id, rowStructure: graffitiesRowStructure },
+          { selectedTab: id, rowStructure: boosterProgramRowStructure },
           () =>
             adminGraffitiesRequest(payload => this.setState({ data: payload })),
         )
@@ -132,7 +132,6 @@ export class AdminPanelPageComponent extends React.Component<any, any> {
             .tableWrapper {
               width: 100%;
             }
-
             .tab {
               display: flex;
               justify-content: center;
@@ -152,7 +151,6 @@ export class AdminPanelPageComponent extends React.Component<any, any> {
               cursor: pointer;
               border: 2px solid ${color('dark')};
             }
-
             .tab:hover {
               background-image: linear-gradient(
                 to bottom right,
@@ -160,7 +158,6 @@ export class AdminPanelPageComponent extends React.Component<any, any> {
                 ${color('grey', 700)}
               );
             }
-
             .tabWrapper {
               display: flex;
               justify-content: center;

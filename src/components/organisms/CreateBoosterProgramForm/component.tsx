@@ -12,7 +12,7 @@ export const CreateGraffitiFormComponent: React.FunctionComponent<
 > = () => {
   return (
     <div className="create-graffiti-form-wrapper">
-      <h1>Create graffiti</h1>
+      <h1>Create booster program</h1>
       <Form className="create-graffiti-form">
         <FormField name="position" label="Position" type="googleMaps" />
         <FormField name="name" label="Name" />

@@ -5,7 +5,7 @@ import { BoosterProgram } from '../../../store/boosterPrograms/types'
 import Router from 'next/router'
 
 interface HomepageProps {
-  graffities: BoosterProgram[]
+  boosterPrograms: BoosterProgram[]
 }
 
 const googleMapsContainerStyles = {
@@ -13,12 +13,12 @@ const googleMapsContainerStyles = {
 }
 
 export const HomepageComponent: React.FunctionComponent<HomepageProps> = ({
-  graffities,
+  boosterPrograms,
 }) => (
   <div>
     <h1>Explore booster programs</h1>
     <div className="cards-container">
-    {graffities.map((program) => (
+    {boosterPrograms.map((program) => (
       <div className="card" onClick={() => {
         Router.push(`${pages.boosterProgram.path}/${program.id}`)
       }}>

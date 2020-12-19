@@ -24,5 +24,5 @@ export interface CreateRatingState {
 export interface CreateRatingData {
   rating: number
   comment: string
-  graffitiId: number
+  boosterProgram_id: number
 }
