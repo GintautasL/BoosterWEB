@@ -29,12 +29,10 @@ const CreateGraffitiFormContainerComponent: React.FunctionComponent<
 > = ({ createBoosterProgramRequest }) => {
   const onSubmit = async values => {
     const createBoosterProgramData = {
-      name: values.name,
       description: values.description,
-      lat: values.position.lat,
-      lng: values.position.lng,
-      uploads: values.uploads,
-      thumbnail: values.thumbnail,
+      starting_elo: values.starting_elo,
+      target_elo: values.target_elo,
+      price: values.price,
     }
     createBoosterProgramRequest(createBoosterProgramData)
   }
