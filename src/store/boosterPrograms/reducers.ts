@@ -12,17 +12,17 @@ export const boosterProgramReducer = (state = initialState, action) => {
     case BoosterProgramActionTypes.BOOSTER_PROGRAMS_SUCCESS:
       return {
         ...state,
-        publicBoosterProgramses: action.data,
+        publicBoosterPrograms: action.data,
       }
     case BoosterProgramActionTypes.ADMIN_BOOSTER_PROGRAMS_SUCCESS:
       return {
         ...state,
-        adminBoosterProgramses: action.data,
+        adminBoosterPrograms: action.data,
       }
     case BoosterProgramActionTypes.MY_BOOSTER_PROGRAMS_SUCCESS:
       return {
         ...state,
-        myBoosterProgramses: action.data,
+        myBoosterPrograms: action.data,
       }
     case BoosterProgramActionTypes.BOOSTER_PROGRAM_SUCCESS:
       return {

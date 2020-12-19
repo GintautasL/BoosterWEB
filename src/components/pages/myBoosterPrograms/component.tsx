@@ -4,23 +4,19 @@ import { color } from '../../../theme'
 import { Button } from '../../atoms'
 import { pages } from '../pagesConfig'
 
-const rowStructure = graffiti => ({
+const rowStructure = boosterProgram => ({
   rowContents: [
     {
-      title: 'Name',
-      content: (graffiti && graffiti.name) || '',
+      title: 'starting_elo',
+      content: (boosterProgram && boosterProgram.starting_elo) || '',
     },
     {
-      title: 'Longtitude',
-      content: graffiti && graffiti.lng,
+      title: 'target_elo',
+      content: boosterProgram && boosterProgram.target_elo,
     },
     {
-      title: 'Latitude',
-      content: graffiti && graffiti.lat,
-    },
-    {
-      title: 'Created at',
-      content: graffiti && graffiti.created_at,
+      title: 'price',
+      content: boosterProgram && boosterProgram.price,
     },
   ],
 })

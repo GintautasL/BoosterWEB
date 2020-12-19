@@ -6,9 +6,10 @@ import config from '../../config'
 import { BoosterProgramActionTypes } from './types'
 import { pages } from '../../components'
 
-export function* myBoosterProgramsRequest() {
+export function* myBoosterProgramsRequest() {  // logged users booster programs
   try {
-    const payload = yield call(api, config.apiMethods.GET, 'user/BoosterProgrames')
+    const payload = yield call(api, config.apiMethods.GET, 'user/boosterprograms')
+    console.log(payload); //
   yield put(actions.myBoosterProgramsSuccess(payload))
   } catch (e) {
     const error = yield e
@@ -18,7 +19,7 @@ export function* myBoosterProgramsRequest() {
 
 export function* BoosterProgramesRequest() {
   try {
-    const payload = yield call(api, config.apiMethods.GET, 'graffittis')
+    const payload = yield call(api, config.apiMethods.GET, 'boosterprogram')
     yield put(actions.boosterProgramsSuccess(payload))
   } catch (e) {
     const error = yield e
