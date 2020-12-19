@@ -60,6 +60,7 @@ export function* editBoosterProgramRequest(editBoosterProgramData, id) {
 }
 
 export function* deleteBoosterProgramRequest(id) {
+  console.log("VYKDO LULULU")
   try {
     yield call(api, config.apiMethods.DELETE, `boosterprogram/${id}`)
     yield put(actions.deleteBoosterProgramSuccess(id))
