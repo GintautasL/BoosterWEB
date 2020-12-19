@@ -50,7 +50,7 @@ export const boosterProgramReducer = (state = initialState, action) => {
       }
 
       case BoosterProgramActionTypes.DELETE_BOOSTER_PROGRAM_SUCCESS:
-        return { ...state, adminBoosterPrograms: state.adminBoosterPrograms.filter(program => program.id !== action.id)}
+        return { ...state, adminBoosterPrograms: state.adminBoosterPrograms.filter(program => program.id != action.id)}
     default:
       return state
   }
