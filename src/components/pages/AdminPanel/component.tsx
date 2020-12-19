@@ -31,9 +31,10 @@ const usersRowStructure = user => ({
   ],
 })
 
-const boosterProgramRowStructure = deleteBoosterProgramRequest => (
-  boosterProgram: FullBoosterProgram,
-) => ({
+const boosterProgramRowStructure = (
+  deleteBoosterProgramRequest,
+  removeDeletedBoosterProgram,
+) => (boosterProgram: FullBoosterProgram) => ({
   rowContents: [
     {
       title: 'Starting Elo',
@@ -60,8 +61,10 @@ const boosterProgramRowStructure = deleteBoosterProgramRequest => (
             <Button>Edit</Button>
           </NextJSLink>
           <Button
-            onClick={
-              () => deleteBoosterProgramRequest(boosterProgram.id)}>
+            onClick={() => {
+              deleteBoosterProgramRequest(boosterProgram.id)
+              removeDeletedBoosterProgram(boosterProgram.id)
+            }}>
             Delete
           </Button>
         </div>
@@ -85,6 +88,13 @@ export class AdminPanelPageComponent extends React.Component<any, any> {
     }
   }
 
+  removeDeletedBoosterProgram = id => {
+    this.setState({
+      ...this.state,
+      data: this.state.data.filter(program => program.id !== id),
+    })
+  }
+
   selectTab = id => {
     const {
       adminUsersRequest,
@@ -106,6 +116,7 @@ export class AdminPanelPageComponent extends React.Component<any, any> {
             selectedTab: id,
             rowStructure: boosterProgramRowStructure(
               deleteBoosterProgramRequest,
+              this.removeDeletedBoosterProgram,
             ),
           },
           () =>
