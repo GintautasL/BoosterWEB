@@ -4,6 +4,7 @@ import { color } from '../../../theme'
 import { Button } from '../../atoms'
 import NextJSLink from 'next/link'
 import { pages } from '../pagesConfig'
+import { FullBoosterProgram } from '../../../store/boosterPrograms/types'
 
 const usersRowStructure = user => ({
   rowContents: [
@@ -30,15 +31,19 @@ const usersRowStructure = user => ({
   ],
 })
 
-const boosterProgramRowStructure = boosterProgram => ({
+const boosterProgramRowStructure = (boosterProgram:FullBoosterProgram) => ({
   rowContents: [
     {
-      title: 'Name',
-      content: (boosterProgram && boosterProgram.name) || '',
+      title: 'Starting Elo',
+      content: (boosterProgram && boosterProgram.starting_elo) || '',
     },
     {
-      title: 'Description',
-      content: boosterProgram && boosterProgram.description,
+      title: 'Target Elo',
+      content: boosterProgram && boosterProgram.target_elo,
+    },
+    {
+      title: 'Price',
+      content: boosterProgram && boosterProgram.price,
     },
     {
       title: 'Created at',

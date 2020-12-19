@@ -9,6 +9,8 @@ import { ApplicationState } from '../../../store'
 import { EditGraffitiFormComponent } from './component'
 import { editBoosterProgramRequest } from '../../../store/boosterPrograms/actions'
 import { BoosterProgram, FullBoosterProgram } from '../../../store/boosterPrograms/types'
+import Router from 'next/router'
+import { pages } from '../..'
 
 interface PropsFromDispatch {
   editBoosterProgramRequest: typeof editBoosterProgramRequest
@@ -44,6 +46,7 @@ const EditGraffitiFormContainerComponent: React.FunctionComponent<AllProps> = ({
       description: values.description,
     }
     editBoosterProgramRequest(boosterProgramEditData, router.query.id)
+    Router.push(pages.adminPanel.path)
   }
 
   return boosterProgram ? (

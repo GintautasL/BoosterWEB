@@ -15,9 +15,10 @@ export const EditGraffitiFormComponent: React.FunctionComponent<
   return (
     <div className="graffiti-edit-form-wrapper">
       <Form className="graffiti-edit-form">
-        <FormField name="name" label="Name" />
-        <FormField name="description" label="Descpription" />
-        <FormField name="position" label="Position" type="googleMaps"/>
+        <FormField name="starting_elo" label="Starting Elo" />
+        <FormField name="target_elo" label="Target Elo" />
+        <FormField name="price" label="Price" type="number"/>
+        <FormField name="description" label="Description" type="textfield"/>
         <div className="button-wrapper">
           <Button type="submit"> Edit </Button>
         </div>
