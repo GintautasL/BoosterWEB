@@ -1,0 +1,48 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["airbnb"],
+  "plugins": [
+    "import",
+    "jsx-a11y",
+    "react",
+    "prettier",
+    "babel",
+    "react-hooks"
+  ],
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "semi": "off",
+    "prettier/prettier": "error",
+    "no-console": 0,
+    "linebreak-style": "off",
+    "import/prefer-default-export": 0,
+    "react/forbid-prop-types": 0,
+    "react/require-default-props": 0,
+    "react/jsx-filename-extension": 0,
+    "react/jsx-closing-bracket-location": 0,
+    "react/no-danger": 0,
+    "react/no-unused-prop-types": 0,
+    "import/no-dynamic-require": 0,
+    "jsx-a11y/label-has-associated-control": 0,
+    "jsx-a11y/label-has-for": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "jsx-a11y/click-events-have-key-events": 0,
+    "import/no-cycle": 0,
+    "react/jsx-wrap-multilines": 0,
+    "import/no-extraneous-dependencies": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "arrow-parens": "off",
+    "implicit-arrow-linebreak": "off"
+  }
+}
