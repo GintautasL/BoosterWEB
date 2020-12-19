@@ -3,15 +3,15 @@ import { Formik } from 'formik'
 import { connect } from 'react-redux'
 import { CreateGraffitiFormComponent } from '.'
 import { ApplicationState } from '../../../store'
-import { createGraffitiRequest } from '../../../store/graffities/actions'
-import { CreateGraffitiState } from '../../../store/graffities/types'
+import { createBoosterProgramRequest } from '../../../store/boosterPrograms/actions'
+import { CreateBoosterProgramData } from '../../../store/boosterPrograms/types'
 
 interface PropsFromDispatch {
-  createGraffitiRequest: typeof createGraffitiRequest
+  createBoosterProgramRequest: typeof createBoosterProgramRequest
 }
 
 interface PropsFromState {
-  graffiti: CreateGraffitiState
+  boosterProgram: CreateBoosterProgramData
 }
 
 type AllProps = PropsFromState & PropsFromDispatch
@@ -26,9 +26,9 @@ const initialValues = {
 
 const CreateGraffitiFormContainerComponent: React.FunctionComponent<
   AllProps
-> = ({ createGraffitiRequest, graffiti }) => {
+> = ({ createBoosterProgramRequest }) => {
   const onSubmit = async values => {
-    const createGraffitiData = {
+    const createBoosterProgramData = {
       name: values.name,
       description: values.description,
       lat: values.position.lat,
@@ -36,25 +36,22 @@ const CreateGraffitiFormContainerComponent: React.FunctionComponent<
       uploads: values.uploads,
       thumbnail: values.thumbnail,
     }
-    createGraffitiRequest(createGraffitiData)
+    createBoosterProgramRequest(createBoosterProgramData)
   }
   return (
     <Formik onSubmit={onSubmit} initialValues={initialValues}>
-      <CreateGraffitiFormComponent graffiti={graffiti} />
+      <CreateGraffitiFormComponent />
     </Formik>
   )
 }
 
-const mapStateToProps = ({ graffiti }: ApplicationState) => ({
-  graffiti: {
-    loading: graffiti.createGraffiti.loading,
-    errors: graffiti.createGraffiti.errors,
-  },
+const mapStateToProps = ({ boosterProgram }: ApplicationState) => ({
+  boosterProgram: boosterProgram.boosterProgram
 })
 
 const mapDispatchToProps = dispatch => ({
-  createGraffitiRequest: createGraffitiData =>
-    dispatch(createGraffitiRequest(createGraffitiData)),
+  createBoosterProgramRequest: createGraffitiData =>
+    dispatch(createBoosterProgramRequest(createGraffitiData)),
 })
 
 export const CreateGraffitiForm = connect(

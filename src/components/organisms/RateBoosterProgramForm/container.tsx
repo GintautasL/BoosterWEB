@@ -41,7 +41,7 @@ const CreateRatingFormContainerComponent: React.FunctionComponent<AllProps> = ({
   }
   return (
     <Formik onSubmit={onSubmit} initialValues={initialValues}>
-      <CreateRatingFormComponent createRating={createRating} />
+      <CreateRatingFormComponent />
     </Formik>
   )
 }

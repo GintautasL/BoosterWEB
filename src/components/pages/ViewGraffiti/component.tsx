@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 import { get } from 'lodash'
 import { PhotosSlider, Image, GoogleMaps } from '../..'
-import { GraffitiWithPhotos } from '../../../store/graffities/types'
+import { FullBoosterProgram } from '../../../store/boosterPrograms/types'
 import StarRating from 'react-star-rating-component'
 import config from '../../../config'
 import { color } from '../../../theme'
 import { Button } from '../../atoms'
 import { Table, Modal } from '../../molecules'
-import { CreateRatingForm } from '../../organisms/RateGraffitiForm'
+import { CreateRatingForm } from '../../organisms/RateBoosterProgramForm'
 
 interface Props {
-  graffiti: GraffitiWithPhotos
+  boosterProgram: FullBoosterProgram
   graffitiRequest: Function
 }
 
@@ -18,9 +18,9 @@ const googleMapsContainerStyles = {
   height: '100%',
 }
 
-const getMainPhotoIndex = graffiti => {
-  return get(graffiti, 'photos', []).findIndex(
-    upload => upload.id === graffiti.thumbnail,
+const getMainPhotoIndex = boosterProgram => {
+  return get(boosterProgram, 'photos', []).findIndex(
+    upload => upload.id === boosterProgram.thumbnail,
   )
 }
 
@@ -48,22 +48,22 @@ const rowStructure = rating => ({
   ],
 })
 
-export const ViewGraffitiPageComponent: React.FunctionComponent<Props> = ({
-  graffiti,
+export const ViewBoosterProgramPageComponent: React.FunctionComponent<Props> = ({
+  boosterProgram,
   graffitiRequest,
 }) => {
   const [ratingModalOpen, setRatingModalOpen] = useState(false)
   return (
-    graffiti && (
+    boosterProgram && (
       <div className="pageWrapper">
         <div className="starRatingWrapper">
           <StarRating
             name="starRatingDisplay"
             starCount={5}
-            value={graffiti.totalRating / graffiti.totalRated}
+            value={boosterProgram.totalRating / boosterProgram.totalRated}
             emptyStarColor={color('light', 300)}
           />
-          <div>{`(${graffiti.totalRating / graffiti.totalRated || 0}/5)`}</div>
+          <div>{`(${boosterProgram.totalRating / boosterProgram.totalRated || 0}/5)`}</div>
         </div>
 
         <div className="upperContent">
@@ -73,7 +73,7 @@ export const ViewGraffitiPageComponent: React.FunctionComponent<Props> = ({
                 return (
                   <Image
                     src={`${config.apiUrl}/photo/${get(
-                      graffiti,
+                      boosterProgram,
                       `photos[${i}].id`,
                     )}`}
                     width="100px"
@@ -82,8 +82,8 @@ export const ViewGraffitiPageComponent: React.FunctionComponent<Props> = ({
                   />
                 )
               }}
-              initialSlide={getMainPhotoIndex(graffiti)}>
-              {get(graffiti, 'photos', []).map(upload => {
+              initialSlide={getMainPhotoIndex(boosterProgram)}>
+              {get(boosterProgram, 'photos', []).map(upload => {
                 return (
                   <div key={upload.id} className="photoSliderImageWrapper">
                     <Image
@@ -98,17 +98,8 @@ export const ViewGraffitiPageComponent: React.FunctionComponent<Props> = ({
             </PhotosSlider>
           </div>
           <div className="rightContent">
-            <h1>{graffiti.name}</h1>
-            <h4>{graffiti.description}</h4>
+            <h4>{boosterProgram.description}</h4>
           </div>
-        </div>
-        <div className="googleMapsWrapper">
-          <GoogleMaps
-            containerStyles={googleMapsContainerStyles}
-            markers={[graffiti]}
-            defaultCenter={{ lat: graffiti.lat, lng: graffiti.lng }}
-            defaultZoom={12}
-          />
         </div>
         <div className="ratingsWrapper">
           <div className="ratingsUpperContainer">
@@ -119,12 +110,12 @@ export const ViewGraffitiPageComponent: React.FunctionComponent<Props> = ({
               minHeight="300px"
               height="auto"
               trigger={<Button>Rate</Button>}
-              title="Rate graffiti"
+              title="Rate boosterProgram"
               open={ratingModalOpen}
               transition
               handleModalClose={() => setRatingModalOpen(false)}>
               <CreateRatingForm
-                graffitiId={graffiti.id}
+                graffitiId={boosterProgram.id}
                 closeModal={() => setRatingModalOpen(false)}
                 graffitiRequest={graffitiRequest}
               />
@@ -133,9 +124,9 @@ export const ViewGraffitiPageComponent: React.FunctionComponent<Props> = ({
           <hr />
           <div className="tableWrapper">
             <Table
-              data={graffiti.latestRatings}
+              data={boosterProgram.latestRatings}
               rowStructure={rowStructure}
-              notFoundText="No one rated this graffiti yet"
+              notFoundText="No one rated this boosterProgram yet"
             />
           </div>
         </div>
@@ -194,11 +185,6 @@ export const ViewGraffitiPageComponent: React.FunctionComponent<Props> = ({
             .upperContent {
               display: flex;
               max-height: 700px;
-            }
-            .googleMapsWrapper {
-              width: 100%;
-              height: 500px;
-              margin-top: 30px;
             }
           `}
         </style>

@@ -1,16 +1,14 @@
 import React from 'react'
 import { color } from '../../../theme'
-import { EditGraffitiForm } from '../../organisms/EditGraffitiForm'
-import { Graffiti } from '../../../store/graffities/types'
+import { EditGraffitiForm } from '../../organisms/EditBoosterProgramForm'
+import { BoosterProgram } from '../../../store/boosterPrograms/types'
 
 interface Props {
-  graffiti: Graffiti
-  graffitiRequest: Function
+  graffiti: BoosterProgram
 }
 
 export const EditGraffitiPageComponent: React.FunctionComponent<Props> = ({
   graffiti,
-  graffitiRequest,
 }) => {
   return (
     <div className="pageWrapper">

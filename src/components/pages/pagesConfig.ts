@@ -21,7 +21,7 @@ export const pages = {
   },
   createGraffiti: {
     path: '/create-graffiti',
-    title: 'Create Graffiti',
+    title: 'Create BoosterProgram',
   },
   graffiti: {
     path: '/graffiti',

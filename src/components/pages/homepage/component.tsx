@@ -2,10 +2,10 @@ import React from 'react'
 import { pages } from '..'
 import { GoogleMaps } from '../../molecules'
 import { color } from '../../../theme'
-import { Graffiti } from '../../../store/graffities/types'
+import { BoosterProgram } from '../../../store/boosterPrograms/types'
 
 interface HomepageProps {
-  graffities: Graffiti[]
+  graffities: BoosterProgram[]
 }
 
 const googleMapsContainerStyles = {

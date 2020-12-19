@@ -1,45 +1,45 @@
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { connect } from 'react-redux'
-import { ViewGraffitiPageComponent } from '.'
+import { ViewBoosterProgramPageComponent } from '.'
 import { ApplicationState } from '../../../store'
-import { graffitiRequest } from '../../../store/graffities/actions'
+import { boosterProgramRequest } from '../../../store/boosterPrograms/actions'
 import { createRatingRequest } from '../../../store/ratings/actions'
-import { GraffitiWithPhotos } from '../../../store/graffities/types'
+import { FullBoosterProgram } from '../../../store/boosterPrograms/types'
 
 interface PropsFromDispatch {
-  graffitiRequest: typeof graffitiRequest
+  boosterProgramRequest: typeof boosterProgramRequest
 }
 
 interface PropsFromState {
-  graffiti: GraffitiWithPhotos
+  fullBoosterProgram: FullBoosterProgram
 }
 
 type AllProps = PropsFromDispatch & PropsFromState
 
 const ViewGraffitiPageContainerComponent: React.FunctionComponent<AllProps> = ({
-  graffitiRequest,
-  graffiti,
+  boosterProgramRequest,
+  fullBoosterProgram,
 }) => {
   const router = useRouter()
 
   useEffect(() => {
-    graffitiRequest(router.query.id)
+    boosterProgramRequest(router.query.id)
   }, [])
   return (
-    <ViewGraffitiPageComponent
-      graffiti={graffiti}
-      graffitiRequest={() => graffitiRequest(router.query.id)}
+    <ViewBoosterProgramPageComponent
+      boosterProgram={fullBoosterProgram}
+      graffitiRequest={() => boosterProgramRequest(router.query.id)}
     />
   )
 }
 
-const mapStateToProps = ({ graffiti }: ApplicationState) => ({
-  graffiti: graffiti.graffiti,
+const mapStateToProps = ({ boosterProgram }: ApplicationState) => ({
+  graffiti: boosterProgram,
 })
 
 const mapDispatchToProps = dispatch => ({
-  graffitiRequest: id => dispatch(graffitiRequest(id)),
+  graffitiRequest: id => dispatch(boosterProgramRequest(id)),
 })
 
 export const ViewGraffitiPage = connect(

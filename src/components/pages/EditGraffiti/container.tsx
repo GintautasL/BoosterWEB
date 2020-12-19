@@ -3,43 +3,42 @@ import { useRouter } from 'next/router'
 import { connect } from 'react-redux'
 import { EditGraffitiPageComponent } from '.'
 import { ApplicationState } from '../../../store'
-import { graffitiRequest } from '../../../store/graffities/actions'
+import { boosterProgramRequest } from '../../../store/boosterPrograms/actions'
 import { AdminUser } from '../../../store/users/types'
-import { Graffiti } from '../../../store/graffities/types'
+import { BoosterProgram } from '../../../store/boosterPrograms/types'
 
 interface PropsFromDispatch {
-  graffitiRequest: typeof graffitiRequest
+  boosterProgramRequest: typeof boosterProgramRequest
 }
 
 interface PropsFromState {
-  graffiti: Graffiti
+  graffiti: BoosterProgram
 }
 
 type AllProps = PropsFromDispatch & PropsFromState
 
 const EditGraffitiPageContainerComponent: React.FunctionComponent<AllProps> = ({
-  graffitiRequest,
+  boosterProgramRequest,
   graffiti,
 }) => {
   const router = useRouter()
 
   useEffect(() => {
-    graffitiRequest(router.query.id)
+    boosterProgramRequest(router.query.id)
   }, [])
   return (
     <EditGraffitiPageComponent
       graffiti={graffiti}
-      graffitiRequest={() => graffitiRequest(router.query.id)}
     />
   )
 }
 
-const mapStateToProps = ({ graffiti }: ApplicationState) => ({
-  graffiti: graffiti.graffiti,
+const mapStateToProps = ({ boosterProgram }: ApplicationState) => ({
+  boosterProgram: boosterProgram.boosterProgram,
 })
 
 const mapDispatchToProps = dispatch => ({
-  graffitiRequest: id => dispatch(graffitiRequest(id)),
+  graffitiRequest: id => dispatch(boosterProgramRequest(id)),
 })
 
 export const EditGraffitiPage = connect(

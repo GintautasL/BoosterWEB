@@ -2,35 +2,35 @@ import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
 import { MyGraffitiesPageComponent } from '.'
 import { ApplicationState } from '../../../store'
-import { myGraffitiesRequest } from '../../../store/graffities/actions'
-import { Graffiti } from '../../../store/graffities/types'
+import { myBoosterProgramsRequest } from '../../../store/boosterPrograms/actions'
+import { BoosterProgram } from '../../../store/boosterPrograms/types'
 
 interface PropsFromDispatch {
-  myGraffitiesRequest: typeof myGraffitiesRequest
+  myBoosterProgramsRequest: typeof myBoosterProgramsRequest
 }
 
 interface PropsFromState {
-  graffities: Graffiti[]
+  boosterPrograms: BoosterProgram[]
 }
 
 type AllProps = PropsFromDispatch & PropsFromState
 
 const MyGraffitiesPageContainerComponent: React.FunctionComponent<AllProps> = ({
-  myGraffitiesRequest,
-  graffities,
+  myBoosterProgramsRequest,
+  boosterPrograms,
 }) => {
   useEffect(() => {
-    myGraffitiesRequest()
+    myBoosterProgramsRequest()
   }, [])
-  return <MyGraffitiesPageComponent graffities={graffities} />
+  return <MyGraffitiesPageComponent boosterPrograms={boosterPrograms} />
 }
 
-const mapStateToProps = ({ graffiti }: ApplicationState) => ({
-  graffities: graffiti.myGraffities,
+const mapStateToProps = ({ boosterProgram }: ApplicationState) => ({
+  boosterPrograms: boosterProgram.myBoosterPrograms,
 })
 
 const mapDispatchToProps = {
-  myGraffitiesRequest,
+  myBoosterProgramsRequest,
 }
 
 export const MyGraffitiesPage = connect(

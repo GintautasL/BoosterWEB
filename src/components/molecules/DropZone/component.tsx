@@ -1,6 +1,5 @@
 import React from 'react'
 import Dropzone from 'react-dropzone'
-import * as loadImage from 'blueimp-load-image'
 import { color } from '../../../theme'
 import { Flex } from '../..'
 import 'canvas-toBlob'
@@ -23,39 +22,7 @@ export class DropZone extends React.Component<Props> {
   onDrop = acceptedFiles => {
     const { onUpload } = this.props
     const rotatedPhotos = []
-    new Promise((resolve, reject) =>
-      acceptedFiles.map(image => {
-        loadImage(
-          image,
-          img => {
-            if (img.type === 'error') {
-              reject()
-            } else {
-              img.toBlob(blob => {
-                this.validateFile(image, blob, reject)
-                let fileObj
-                try {
-                  fileObj = new File([blob], image.name, {type: image.type})
-                } catch (err) {
-                  fileObj = this.blobToFile(blob, image.name, image.type)
-                }
-                rotatedPhotos.push(fileObj)
-                if (rotatedPhotos.length === acceptedFiles.length) {
-                  resolve(rotatedPhotos)
-                }
-              }, 'image/jpeg')
-            }
-          },
-          {
-            maxHeight: 2000,
-            contain: true,
-            orientation: true,
-          },
-        )
-      }),
-    ).then(editedImages => {
-      onUpload(editedImages)
-    })
+    
   }
 
   validateFile = (file, blob = null, reject = null) => {

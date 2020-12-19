@@ -8,7 +8,7 @@ import config from '../../../config'
 import { pages } from '../pagesConfig'
 import { Homepage } from '../homepage'
 import { adminUsersRequest } from '../../../store/users/actions'
-import { adminGraffitiesRequest } from '../../../store/graffities/actions'
+import { adminBoosterProgramsRequest } from '../../../store/boosterPrograms/actions'
 
 interface PropsFromDispatch {}
 
@@ -49,16 +49,16 @@ AdminPanelPageContainerComponent.getInitialProps = async ({ isServer }) => {
   return { isServer: isServer }
 }
 
-const mapStateToProps = ({ users, graffiti }: ApplicationState) => ({
+const mapStateToProps = ({ users, boosterProgram }: ApplicationState) => ({
   profile: users.profile,
   adminUsers: users.adminUsers,
-  adminGraffities: graffiti.adminGraffities,
+  adminBoosterPrograms: boosterProgram.adminBoosterPrograms,
 })
 
 const mapDispatchToProps = dispatch => ({
   adminUsersRequest: setState => dispatch(adminUsersRequest(setState)),
   adminGraffitiesRequest: setState =>
-    dispatch(adminGraffitiesRequest(setState)),
+    dispatch(adminBoosterProgramsRequest(setState)),
 })
 export const AdminPanelPage = connect(
   mapStateToProps,

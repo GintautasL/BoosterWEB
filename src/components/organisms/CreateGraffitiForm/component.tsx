@@ -3,20 +3,18 @@ import { Form } from 'formik'
 import { FormField, Button, ErrorMessage } from '../..'
 import { getError } from '../../../utils'
 import { color } from '../../../theme'
-import { CreateGraffitiState } from '../../../store/graffities/types'
+import { BoosterProgram } from '../../../store/boosterPrograms/types'
 
-interface CreateGraffitiFormProps {
-  graffiti: CreateGraffitiState,
-}
+interface CreateGraffitiFormProps {}
 
 export const CreateGraffitiFormComponent: React.FunctionComponent<
   CreateGraffitiFormProps
-> = ({ graffiti }) => {
+> = () => {
   return (
     <div className="create-graffiti-form-wrapper">
       <h1>Create graffiti</h1>
       <Form className="create-graffiti-form">
-        <FormField name="position" label="Position" type="googleMaps"/>
+        <FormField name="position" label="Position" type="googleMaps" />
         <FormField name="name" label="Name" />
         <FormField type="textarea" name="description" label="Description" />
         <FormField type="dropzoneWithGallery" name="uploads" label="Photo" />
@@ -24,7 +22,7 @@ export const CreateGraffitiFormComponent: React.FunctionComponent<
           <Button type="submit"> Create </Button>
         </div>
         <div className="error-wrapper">
-          <ErrorMessage>{getError(graffiti.errors)}</ErrorMessage>
+          <ErrorMessage>Error here #fix this please</ErrorMessage>
         </div>
       </Form>
       <style jsx>

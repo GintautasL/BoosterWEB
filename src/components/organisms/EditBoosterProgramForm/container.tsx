@@ -7,17 +7,17 @@ import { AuthPayload } from '../../../store/auth/types'
 import { FieldError } from '../../../store/general/types'
 import { ApplicationState } from '../../../store'
 import { EditGraffitiFormComponent } from './component'
-import { editGraffitiRequest } from '../../../store/graffities/actions'
-import { Graffiti } from '../../../store/graffities/types'
+import { editBoosterProgramRequest } from '../../../store/boosterPrograms/actions'
+import { BoosterProgram } from '../../../store/boosterPrograms/types'
 
 interface PropsFromDispatch {
-  editGraffitiRequest: typeof editGraffitiRequest
+  editBoosterProgramRequest: typeof editBoosterProgramRequest
 }
 
 interface PropsFromState {
   loading: Boolean
   errors?: FieldError[]
-  graffiti: Graffiti
+  graffiti: BoosterProgram
 }
 
 type AllProps = PropsFromState & PropsFromDispatch
@@ -32,7 +32,7 @@ const initialValues = graffiti => ({
 })
 
 const EditGraffitiFormContainerComponent: React.FunctionComponent<AllProps> = ({
-  editGraffitiRequest,
+  editBoosterProgramRequest,
   loading,
   graffiti,
   errors,
@@ -40,12 +40,12 @@ const EditGraffitiFormContainerComponent: React.FunctionComponent<AllProps> = ({
   const router = useRouter()
   const onSubmit = async values => {
     const graffitiEditData = {
-      name: values.name,
+      starting_elo: values.starting_elo,
+      target_elo: values.target_elo,
+      price: values.price,
       description: values.description,
-      lat: values.position.lat,
-      lng: values.position.lng,
     }
-    editGraffitiRequest(graffitiEditData, router.query.id)
+    editBoosterProgramRequest(graffitiEditData, router.query.id)
   }
 
   return graffiti ? (
@@ -63,8 +63,8 @@ const mapStateToProps = ({ users }: ApplicationState) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  editGraffitiRequest: (graffitiEditData, id) =>
-    dispatch(editGraffitiRequest(graffitiEditData, id)),
+  editBoosterProgramRequest: (graffitiEditData, id) =>
+    dispatch(editBoosterProgramRequest(graffitiEditData, id)),
 })
 
 export const EditGraffitiForm = connect(

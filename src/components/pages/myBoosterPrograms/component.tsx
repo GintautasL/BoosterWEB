@@ -25,19 +25,19 @@ const rowStructure = graffiti => ({
   ],
 })
 
-export const MyGraffitiesPageComponent = ({ graffities = [] }) => (
+export const MyGraffitiesPageComponent = ({ boosterPrograms = [] }) => (
   <div className="page-wrapper">
     <div>
-      <h1>My graffities</h1>
+      <h1>My boosterPrograms</h1>
     </div>
     <div className="create-button-container">
       <Button to={pages.createGraffiti.path}>Create</Button>
     </div>
     <div className="tableWrapper">
       <Table
-        data={graffities}
+        data={boosterPrograms}
         rowStructure={rowStructure}
-        notFoundText="You don't have any graffities"
+        notFoundText="You don't have any boosterPrograms"
       />
     </div>
     <style jsx>

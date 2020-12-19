@@ -1,37 +1,37 @@
 import React, {useEffect} from 'react'
 import { connect } from 'react-redux'
 import { HomepageComponent } from '.'
-import { graffitiesRequest } from '../../../store/graffities/actions'
-import { Graffiti } from '../../../store/graffities/types'
+import { boosterProgramsRequest } from '../../../store/boosterPrograms/actions'
+import { BoosterProgram } from '../../../store/boosterPrograms/types'
 import { ApplicationState } from '../../../store'
 
 interface PropsFromDispatch {
-  graffitiesRequest: typeof graffitiesRequest
+  boosterProgramsRequest: typeof boosterProgramsRequest
 }
 
 interface PropsFromState {
-  graffities: Graffiti[]
+  boosterPrograms: BoosterProgram[]
 }
 
 type AllProps = PropsFromDispatch & PropsFromState
 
 const HomepagePageContainerComponent: React.FunctionComponent<AllProps> = ({
-  graffitiesRequest,
-  graffities,
+  boosterProgramsRequest,
+  boosterPrograms,
 }) => {
   useEffect(() => {
-    graffitiesRequest()
+    boosterProgramsRequest()
   }, [])
-  return <HomepageComponent graffities={graffities} />
+  return <HomepageComponent graffities={boosterPrograms} />
 }
 
-const mapStateToProps = ({ graffiti }: ApplicationState) => ({
-  graffities: graffiti.publicGraffities,
+const mapStateToProps = ({ boosterProgram }: ApplicationState) => ({
+  boosterPrograms: boosterProgram.publicBoosterPrograms,
 })
 
 
 const mapDispatchToProps = {
-  graffitiesRequest,
+  boosterProgramsRequest,
 }
 
 
