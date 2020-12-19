@@ -16,8 +16,8 @@ export const pages = {
     title: 'About',
   },
   myGraffities: {
-    path: '/my-graffities',
-    title: 'My Graffities',
+    path: '/my-boosterprograms',
+    title: 'My Booster Programs',
   },
   createGraffiti: {
     path: '/create-graffiti',

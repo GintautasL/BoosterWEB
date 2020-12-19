@@ -17,11 +17,7 @@ export const HomepageComponent: React.FunctionComponent<HomepageProps> = ({
 }) => (
   <div>
     <h1>Eplore nearby graffities</h1>
-    <GoogleMaps
-      publicMode
-      containerStyles={googleMapsContainerStyles}
-      markers={graffities}
-    />
+    
     <style jsx>
       {`
         div {

@@ -28,7 +28,7 @@ const rowStructure = graffiti => ({
 export const MyGraffitiesPageComponent = ({ boosterPrograms = [] }) => (
   <div className="page-wrapper">
     <div>
-      <h1>My boosterPrograms</h1>
+      <h1>My booster programs</h1>
     </div>
     <div className="create-button-container">
       <Button to={pages.createGraffiti.path}>Create</Button>
