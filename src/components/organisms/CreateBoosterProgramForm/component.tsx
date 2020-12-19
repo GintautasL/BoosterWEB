@@ -14,10 +14,10 @@ export const CreateGraffitiFormComponent: React.FunctionComponent<
     <div className="create-graffiti-form-wrapper">
       <h1>Create booster program</h1>
       <Form className="create-graffiti-form">
-        <FormField name="position" label="Position" type="googleMaps" />
-        <FormField name="name" label="Name" />
+        <FormField name="starting_elo" label="Starting Elo"/>
+        <FormField name="target_elo" label="Target Elo" />
         <FormField type="textarea" name="description" label="Description" />
-        <FormField type="dropzoneWithGallery" name="uploads" label="Photo" />
+        <FormField type="number" name="price" label="Price" />
         <div className="button-wrapper">
           <Button type="submit"> Create </Button>
         </div>
