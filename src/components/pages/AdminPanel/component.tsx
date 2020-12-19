@@ -99,6 +99,7 @@ export class AdminPanelPageComponent extends React.Component<any, any> {
         )
       }
       if (id === tabs.boosterPrograms.id) {
+        console.log(deleteBoosterProgramRequest)
         this.setState(
           {
             selectedTab: id,
