@@ -20,7 +20,7 @@ CreateRatingFormProps
           <Button type="submit"> Rate </Button>
         </div>
         <div className="error-wrapper">
-          <ErrorMessage>ERRORS "LOL"</ErrorMessage>
+          <ErrorMessage> </ErrorMessage>
         </div>
       </Form>
       <style jsx>

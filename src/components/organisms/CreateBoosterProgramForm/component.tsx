@@ -22,7 +22,7 @@ export const CreateGraffitiFormComponent: React.FunctionComponent<
           <Button type="submit"> Create </Button>
         </div>
         <div className="error-wrapper">
-          <ErrorMessage>Error here #fix this please</ErrorMessage>
+          <ErrorMessage> </ErrorMessage>
         </div>
       </Form>
       <style jsx>
