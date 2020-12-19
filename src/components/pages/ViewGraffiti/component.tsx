@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { get } from 'lodash'
-import { PhotosSlider, Image, GoogleMaps } from '../..'
 import { FullBoosterProgram } from '../../../store/boosterPrograms/types'
 import StarRating from 'react-star-rating-component'
 import config from '../../../config'
@@ -68,34 +67,7 @@ export const ViewBoosterProgramPageComponent: React.FunctionComponent<Props> = (
 
         <div className="upperContent">
           <div className="sliderWrapper">
-            <PhotosSlider
-              customPaging={i => {
-                return (
-                  <Image
-                    src={`${config.apiUrl}/photo/${get(
-                      boosterProgram,
-                      `photos[${i}].id`,
-                    )}`}
-                    width="100px"
-                    height="100px"
-                    style={{ marginTop: 20 }}
-                  />
-                )
-              }}
-              initialSlide={getMainPhotoIndex(boosterProgram)}>
-              {get(boosterProgram, 'photos', []).map(upload => {
-                return (
-                  <div key={upload.id} className="photoSliderImageWrapper">
-                    <Image
-                      src={`${config.apiUrl}/photo/${upload.id}`}
-                      className="photo"
-                      style={{ marginLeft: 'auto', marginRight: 'auto' }}
-                      height="400px"
-                    />
-                  </div>
-                )
-              })}
-            </PhotosSlider>
+            
           </div>
           <div className="rightContent">
             <h4>{boosterProgram.description}</h4>

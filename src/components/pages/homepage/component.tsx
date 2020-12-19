@@ -1,8 +1,8 @@
 import React from 'react'
 import { pages } from '..'
-import { GoogleMaps } from '../../molecules'
 import { color } from '../../../theme'
 import { BoosterProgram } from '../../../store/boosterPrograms/types'
+import Router from 'next/router'
 
 interface HomepageProps {
   graffities: BoosterProgram[]
@@ -16,10 +16,12 @@ export const HomepageComponent: React.FunctionComponent<HomepageProps> = ({
   graffities,
 }) => (
   <div>
-    <h1>Eplore nearby graffities</h1>
+    <h1>Explore booster programs</h1>
     <div className="cards-container">
     {graffities.map((program) => (
-      <div className="card">
+      <div className="card" onClick={() => {
+        Router.push(`${pages.boosterProgram.path}/${program.id}`)
+      }}>
         <h2> Starting Elo</h2>
         <h4> {program.starting_elo} </h4>
         <h2> Target Elo </h2>

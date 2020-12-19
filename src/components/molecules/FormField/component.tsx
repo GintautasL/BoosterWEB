@@ -4,7 +4,6 @@ import {
   Input,
   ErrorMessage,
   StarRatingField,
-  GoogleMapsField,
   DropZoneWithGallery,
   CheckboxField,
 } from '../..'
@@ -19,7 +18,6 @@ export const FormField = ({
   const chooseInput = () => {
     const inputType = {
       checkbox: CheckboxField,
-      googleMaps: GoogleMapsField,
       dropzoneWithGallery: DropZoneWithGallery,
       starRating: StarRatingField,
     }

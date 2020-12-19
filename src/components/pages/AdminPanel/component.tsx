@@ -47,7 +47,7 @@ const graffitiesRowStructure = graffiti => ({
     {
       title: '',
       content: graffiti && (
-        <NextJSLink href={`${pages.editGraffiti.path}/${graffiti.id}`}>
+        <NextJSLink href={`${pages.editBoosterProgram.path}/${graffiti.id}`}>
           <Button>Edit</Button>
         </NextJSLink>
       ),

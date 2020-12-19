@@ -41,7 +41,7 @@ export function* adminBoosterProgramsRequest(setState) {
 export function* createBoosterProgramRequest(createBoosterProgramData) {
   try {
     yield call(api, config.apiMethods.POST, 'graffittis', createBoosterProgramData)
-    Router.push(pages.myGraffities.path)
+    Router.push(pages.myBoosterPrograms.path)
     yield put(actions.createBoosterProgramSuccess())
   } catch (e) {
     const errors = yield e

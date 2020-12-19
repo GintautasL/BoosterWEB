@@ -15,17 +15,17 @@ export const pages = {
     path: '/about',
     title: 'About',
   },
-  myGraffities: {
+  myBoosterPrograms: {
     path: '/my-boosterprograms',
     title: 'My Booster Programs',
   },
-  createGraffiti: {
-    path: '/create-graffiti',
+  createBoosterProgram: {
+    path: '/create-boosterprogram',
     title: 'Create BoosterProgram',
   },
-  graffiti: {
-    path: '/graffiti',
-    title: 'View graffiti',
+  boosterProgram: {
+    path: '/boosterprogram',
+    title: 'View boosterprogram',
   },
   adminPanel: {
     path: '/admin',
@@ -35,8 +35,8 @@ export const pages = {
     path: '/admin/edit-user',
     title: 'Edit user',
   },
-  editGraffiti: {
-    path: '/admin/edit-graffiti',
-    title: 'Edit graffiti',
+  editBoosterProgram: {
+    path: '/admin/edit-boosterprogram',
+    title: 'Edit boosterprogram',
   },
 }

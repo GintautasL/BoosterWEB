@@ -12,7 +12,7 @@ export const Sidebar = ({
   setSidebarOpened,
 }) => {
   const menuPages = [pages.register, pages.login]
-  const menuPagesLoggedIn = [pages.myGraffities]
+  const menuPagesLoggedIn = [pages.myBoosterPrograms]
   profile.roles &&
     profile.roles.find(role => role.title === config.roles.ROLE_ADMIN.role) &&
     menuPagesLoggedIn.unshift(pages.adminPanel)

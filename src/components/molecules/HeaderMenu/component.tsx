@@ -7,7 +7,7 @@ import { Sidebar } from '../../organisms/Sidebar'
 import config from '../../../config'
 
 const menuPages = [pages.register, pages.login]
-const menuPagesLoggedIn = [pages.myGraffities]
+const menuPagesLoggedIn = [pages.myBoosterPrograms]
 const adminPages = [pages.adminPanel]
 
 export const HeaderMenuComponent = ({ profile, logoutRequest }) => {
