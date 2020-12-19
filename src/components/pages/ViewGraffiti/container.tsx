@@ -39,7 +39,7 @@ const mapStateToProps = ({ boosterProgram }: ApplicationState) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  graffitiRequest: id => dispatch(boosterProgramRequest(id)),
+  boosterProgramRequest: id => dispatch(boosterProgramRequest(id)),
 })
 
 export const ViewGraffitiPage = connect(

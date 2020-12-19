@@ -161,6 +161,6 @@ export const ViewBoosterProgramPageComponent: React.FunctionComponent<Props> = (
           `}
         </style>
       </div>
-    )
+    ) || <div>Booster program not found</div>
   )
 }
