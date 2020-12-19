@@ -59,6 +59,16 @@ export function* editBoosterProgramRequest(editBoosterProgramData, id) {
   }
 }
 
+export function* deleteBoosterProgramRequest(id) {
+  try {
+    yield call(api, config.apiMethods.DELETE, `boosterprogram/${id}`)
+    yield put(actions.deleteBoosterProgramSuccess(id))
+  } catch (e) {
+    const errors = yield e
+    yield put(actions.deleteBoosterProgramFailure(errors))
+  }
+}
+
 export function* BoosterProgramRequest(id) {
   try {
     const payload = yield call(api, config.apiMethods.GET, `boosterprogram/${id}`)
@@ -97,6 +107,12 @@ export function* watchEditBoosterProgramRequest(props) {
   yield call(editBoosterProgramRequest, data, id)
 }
 
+export function* watchDeleteBoosterProgramRequest(props) {
+  const { id } = props
+  yield call(deleteBoosterProgramRequest, id)
+}
+
+
 export default function*() {
   yield takeEvery(BoosterProgramActionTypes.BOOSTER_PROGRAM_REQUEST, watchBoosterProgramRequest)
   yield takeEvery(
@@ -118,5 +134,9 @@ export default function*() {
   yield takeEvery(
     BoosterProgramActionTypes.EDIT_BOOSTER_PROGRAM_REQUEST,
     watchEditBoosterProgramRequest,
+  )
+  yield takeEvery(
+    BoosterProgramActionTypes.DELETE_BOOSTER_PROGRAM_REQUEST,
+    watchDeleteBoosterProgramRequest,
   )
 }

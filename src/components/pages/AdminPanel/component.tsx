@@ -31,7 +31,9 @@ const usersRowStructure = user => ({
   ],
 })
 
-const boosterProgramRowStructure = (boosterProgram:FullBoosterProgram) => ({
+const boosterProgramRowStructure = deleteBoosterProgramRequest => (
+  boosterProgram: FullBoosterProgram,
+) => ({
   rowContents: [
     {
       title: 'Starting Elo',
@@ -52,9 +54,16 @@ const boosterProgramRowStructure = (boosterProgram:FullBoosterProgram) => ({
     {
       title: '',
       content: boosterProgram && (
-        <NextJSLink href={`${pages.editBoosterProgram.path}/${boosterProgram.id}`}>
-          <Button>Edit</Button>
-        </NextJSLink>
+        <div>
+          <NextJSLink
+            href={`${pages.editBoosterProgram.path}/${boosterProgram.id}`}>
+            <Button>Edit</Button>
+          </NextJSLink>
+          <Button
+            onClick={() => deleteBoosterProgramRequest(boosterProgram.id)}>
+            Delete
+          </Button>
+        </div>
       ),
     },
   ],
@@ -76,7 +85,11 @@ export class AdminPanelPageComponent extends React.Component<any, any> {
   }
 
   selectTab = id => {
-    const { adminUsersRequest, adminGraffitiesRequest } = this.props
+    const {
+      adminUsersRequest,
+      adminGraffitiesRequest,
+      deleteBoosterProgramRequest,
+    } = this.props
     const { selectedTab } = this.state
     if (selectedTab !== id) {
       if (id === tabs.users.id) {
@@ -87,7 +100,12 @@ export class AdminPanelPageComponent extends React.Component<any, any> {
       }
       if (id === tabs.boosterPrograms.id) {
         this.setState(
-          { selectedTab: id, rowStructure: boosterProgramRowStructure },
+          {
+            selectedTab: id,
+            rowStructure: boosterProgramRowStructure(
+              deleteBoosterProgramRequest,
+            ),
+          },
           () =>
             adminGraffitiesRequest(payload => this.setState({ data: payload })),
         )

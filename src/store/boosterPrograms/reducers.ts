@@ -48,6 +48,9 @@ export const boosterProgramReducer = (state = initialState, action) => {
         ...state,
         editBoosterPrograms: { loading: false, errors: action.errors },
       }
+
+      case BoosterProgramActionTypes.DELETE_BOOSTER_PROGRAM_SUCCESS:
+        return { ...state, adminBoosterPrograms: state.adminBoosterPrograms.filter(program => program.id !== action.id)}
     default:
       return state
   }

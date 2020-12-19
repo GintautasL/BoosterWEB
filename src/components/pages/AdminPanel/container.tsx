@@ -8,7 +8,7 @@ import config from '../../../config'
 import { pages } from '../pagesConfig'
 import { Homepage } from '../homepage'
 import { adminUsersRequest } from '../../../store/users/actions'
-import { adminBoosterProgramsRequest } from '../../../store/boosterPrograms/actions'
+import { adminBoosterProgramsRequest, deleteBoosterProgramRequest } from '../../../store/boosterPrograms/actions'
 
 interface PropsFromDispatch {}
 
@@ -25,6 +25,7 @@ const AdminPanelPageContainerComponent: any = ({
   adminGraffities,
   adminUsersRequest,
   adminGraffitiesRequest,
+  deleteBoosterProgramRequest,
 }) => {
   if (isServer) return <Homepage />
   if (
@@ -41,6 +42,7 @@ const AdminPanelPageContainerComponent: any = ({
       adminUsers={adminUsers}
       adminGraffitiesRequest={adminGraffitiesRequest}
       adminGraffities={adminGraffities}
+      deleteBoosterProgramRequest={deleteBoosterProgramRequest}
     />
   )
 }
@@ -59,6 +61,8 @@ const mapDispatchToProps = dispatch => ({
   adminUsersRequest: setState => dispatch(adminUsersRequest(setState)),
   adminGraffitiesRequest: setState =>
     dispatch(adminBoosterProgramsRequest(setState)),
+    deleteBoosterProgramRequest: id =>
+    dispatch(deleteBoosterProgramRequest(id)),
 })
 export const AdminPanelPage = connect(
   mapStateToProps,

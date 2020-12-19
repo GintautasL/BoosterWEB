@@ -75,3 +75,16 @@ export const editBoosterProgramFailure = (errors: FieldError[]) => ({
   type: BoosterProgramActionTypes.EDIT_BOOSTER_PROGRAM_FAILURE,
   errors,
 })
+
+export const deleteBoosterProgramRequest = (id) => ({
+  type: BoosterProgramActionTypes.DELETE_BOOSTER_PROGRAM_REQUEST,
+  id: id,
+})
+export const deleteBoosterProgramSuccess = (id) => ({
+  type: BoosterProgramActionTypes.DELETE_BOOSTER_PROGRAM_SUCCESS,
+  id
+})
+export const deleteBoosterProgramFailure = (errors: FieldError[]) => ({
+  type: BoosterProgramActionTypes.DELETE_BOOSTER_PROGRAM_FAILURE,
+  errors,
+})
