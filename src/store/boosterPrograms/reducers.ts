@@ -27,7 +27,7 @@ export const boosterProgramReducer = (state = initialState, action) => {
     case BoosterProgramActionTypes.BOOSTER_PROGRAM_SUCCESS:
       return {
         ...state,
-        graffiti: action.data,
+        boosterProgram: action.data,
       }
     case BoosterProgramActionTypes.CREATE_BOOSTER_PROGRAM_REQUEST:
       return { ...state, createBoosterPrograms: { loading: true, errors: undefined } }

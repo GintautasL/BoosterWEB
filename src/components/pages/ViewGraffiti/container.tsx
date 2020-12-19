@@ -35,7 +35,7 @@ const ViewGraffitiPageContainerComponent: React.FunctionComponent<AllProps> = ({
 }
 
 const mapStateToProps = ({ boosterProgram }: ApplicationState) => ({
-  graffiti: boosterProgram,
+  fullBoosterProgram: boosterProgram.boosterProgram,
 })
 
 const mapDispatchToProps = dispatch => ({

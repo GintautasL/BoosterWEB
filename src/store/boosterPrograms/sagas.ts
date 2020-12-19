@@ -61,7 +61,7 @@ export function* editBoosterProgramRequest(editBoosterProgramData, id) {
 
 export function* BoosterProgramRequest(id) {
   try {
-    const payload = yield call(api, config.apiMethods.GET, `graffittis/${id}`)
+    const payload = yield call(api, config.apiMethods.GET, `boosterprogram/${id}`)
     yield put(actions.boosterProgramRequestSuccess(payload))
   } catch (e) {
     const errors = yield e
