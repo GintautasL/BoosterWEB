@@ -8,7 +8,10 @@ import config from '../../../config'
 import { pages } from '../pagesConfig'
 import { Homepage } from '../homepage'
 import { adminUsersRequest } from '../../../store/users/actions'
-import { adminBoosterProgramsRequest, deleteBoosterProgramRequest } from '../../../store/boosterPrograms/actions'
+import {
+  adminBoosterProgramsRequest,
+  deleteBoosterProgramRequest,
+} from '../../../store/boosterPrograms/actions'
 
 interface PropsFromDispatch {}
 
@@ -61,8 +64,7 @@ const mapDispatchToProps = dispatch => ({
   adminUsersRequest: setState => dispatch(adminUsersRequest(setState)),
   adminGraffitiesRequest: setState =>
     dispatch(adminBoosterProgramsRequest(setState)),
-    deleteBoosterProgramRequest: id =>
-    dispatch(deleteBoosterProgramRequest(id)),
+  deleteBoosterProgramRequest: id => dispatch(deleteBoosterProgramRequest(id)),
 })
 export const AdminPanelPage = connect(
   mapStateToProps,
