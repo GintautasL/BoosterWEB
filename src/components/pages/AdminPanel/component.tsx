@@ -60,9 +60,8 @@ const boosterProgramRowStructure = deleteBoosterProgramRequest => (
             <Button>Edit</Button>
           </NextJSLink>
           <Button
-            onClick={() => {
-              console.log(deleteBoosterProgramRequest)
-              deleteBoosterProgramRequest(boosterProgram.id)()}}>
+            onClick={
+              deleteBoosterProgramRequest(boosterProgram.id)}>
             Delete
           </Button>
         </div>
