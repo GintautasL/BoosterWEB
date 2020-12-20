@@ -62,7 +62,7 @@ const mapStateToProps = ({ users, boosterProgram }: ApplicationState) => ({
 
 const mapDispatchToProps = dispatch => ({
   adminUsersRequest: setState => dispatch(adminUsersRequest(setState)),
-  adminBoosterprogramsRequest: setState =>
+  adminBoosterProgramsRequest: setState =>
     dispatch(adminBoosterProgramsRequest(setState)),
   deleteBoosterProgramRequest: id => dispatch(deleteBoosterProgramRequest(id)),
 })
