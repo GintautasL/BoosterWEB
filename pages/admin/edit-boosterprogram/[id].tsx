@@ -1,3 +1,3 @@
-import { EditGraffitiPage } from '../../../src/components'
+import { EditBoosterProgramPage } from '../../../src/components'
 
-export default EditGraffitiPage
+export default EditBoosterProgramPage

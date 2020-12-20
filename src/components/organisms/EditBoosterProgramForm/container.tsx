@@ -6,7 +6,7 @@ import { loginRequest } from '../../../store/auth/actions'
 import { AuthPayload } from '../../../store/auth/types'
 import { FieldError } from '../../../store/general/types'
 import { ApplicationState } from '../../../store'
-import { EditGraffitiFormComponent } from './component'
+import { EditBoosterProgramFormComponent } from './component'
 import { editBoosterProgramRequest } from '../../../store/boosterPrograms/actions'
 import { BoosterProgram, FullBoosterProgram } from '../../../store/boosterPrograms/types'
 import Router from 'next/router'
@@ -31,7 +31,7 @@ const initialValues = (boosterProgram: FullBoosterProgram) => ({
   price: boosterProgram.price,
 })
 
-const EditGraffitiFormContainerComponent: React.FunctionComponent<AllProps> = ({
+const EditBoosterProgramFormContainerComponent: React.FunctionComponent<AllProps> = ({
   editBoosterProgramRequest,
   loading,
   boosterProgram,
@@ -51,7 +51,7 @@ const EditGraffitiFormContainerComponent: React.FunctionComponent<AllProps> = ({
 
   return boosterProgram ? (
     <Formik onSubmit={onSubmit} initialValues={initialValues(boosterProgram)}>
-      <EditGraffitiFormComponent errors={errors} />
+      <EditBoosterProgramFormComponent errors={errors} />
     </Formik>
   ) : (
     <div />
@@ -71,4 +71,4 @@ const mapDispatchToProps = dispatch => ({
 export const EditBoosterProgramForm = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(EditGraffitiFormContainerComponent)
+)(EditBoosterProgramFormContainerComponent)

@@ -1,3 +1,3 @@
-import { ViewGraffitiPage } from '../../src/components'
+import { ViewBoosterProgramPage } from '../../src/components'
 
-export default ViewGraffitiPage
+export default ViewBoosterProgramPage

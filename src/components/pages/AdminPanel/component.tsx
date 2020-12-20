@@ -98,7 +98,7 @@ export class AdminPanelPageComponent extends React.Component<any, any> {
   selectTab = id => {
     const {
       adminUsersRequest,
-      adminGraffitiesRequest,
+      adminBoosterProgramsRequest,
       deleteBoosterProgramRequest,
     } = this.props
     const { selectedTab } = this.state
@@ -120,7 +120,7 @@ export class AdminPanelPageComponent extends React.Component<any, any> {
             ),
           },
           () =>
-            adminGraffitiesRequest(payload => this.setState({ data: payload })),
+            adminBoosterProgramsRequest(payload => this.setState({ data: payload })),
         )
       }
     }

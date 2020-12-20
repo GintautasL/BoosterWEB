@@ -32,12 +32,12 @@ const CreateRatingFormContainerComponent: React.FunctionComponent<AllProps> = ({
   boosterProgramRequest,
 }) => {
   const onSubmit = async values => {
-    const createGraffitiData = {
+    const createBoosterProgramData = {
       comment: values.comment,
       rating: values.rating,
       boosterProgram_id: boosterProgramId,
     }
-    createRatingRequest(createGraffitiData, closeModal, boosterProgramRequest)
+    createRatingRequest(createBoosterProgramData, closeModal, boosterProgramRequest)
   }
   return (
     <Formik onSubmit={onSubmit} initialValues={initialValues}>

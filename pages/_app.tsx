@@ -34,7 +34,7 @@ class MyApp extends App<MyAppProps, {}, {}> {
     return (
       <>
         <Head>
-          <title>GraffitiTour</title>
+          <title>L0L B00st3r 420</title>
         </Head>
         <Provider store={store}>
 

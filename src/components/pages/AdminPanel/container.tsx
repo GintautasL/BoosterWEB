@@ -25,9 +25,9 @@ const AdminPanelPageContainerComponent: any = ({
   profile,
   isServer,
   adminUsers,
-  adminGraffities,
+  adminBoosterPrograms,
   adminUsersRequest,
-  adminGraffitiesRequest,
+  adminBoosterProgramsRequest,
   deleteBoosterProgramRequest,
 }) => {
   if (isServer) return <Homepage />
@@ -43,8 +43,8 @@ const AdminPanelPageContainerComponent: any = ({
     <AdminPanelPageComponent
       adminUsersRequest={adminUsersRequest}
       adminUsers={adminUsers}
-      adminGraffitiesRequest={adminGraffitiesRequest}
-      adminGraffities={adminGraffities}
+      adminBoosterProgramsRequest={adminBoosterProgramsRequest}
+      adminBoosterPrograms={adminBoosterPrograms}
       deleteBoosterProgramRequest={deleteBoosterProgramRequest}
     />
   )
@@ -62,7 +62,7 @@ const mapStateToProps = ({ users, boosterProgram }: ApplicationState) => ({
 
 const mapDispatchToProps = dispatch => ({
   adminUsersRequest: setState => dispatch(adminUsersRequest(setState)),
-  adminGraffitiesRequest: setState =>
+  adminBoosterprogramsRequest: setState =>
     dispatch(adminBoosterProgramsRequest(setState)),
   deleteBoosterProgramRequest: id => dispatch(deleteBoosterProgramRequest(id)),
 })

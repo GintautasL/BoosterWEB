@@ -13,7 +13,7 @@ CreateRatingFormProps
 > = () => {
   return (
     <div className="create-rating-form-wrapper">
-      <Form className="create-graffiti-form">
+      <Form className="create-boosterprogram-form">
         <FormField type="starRating" name="rating" />
         <FormField type="textarea" name="comment" label="Comment" />
         <div className="button-wrapper">

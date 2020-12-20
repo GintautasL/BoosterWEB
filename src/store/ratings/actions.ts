@@ -1,11 +1,11 @@
 import { RatingActionTypes } from './types'
 import { FieldError } from '../general/types'
 
-export const createRatingRequest = (data, closeModal, updateGraffiti) => ({
+export const createRatingRequest = (data, closeModal, updateBoosterProgram) => ({
   type: RatingActionTypes.CREATE_RATING_REQUEST,
   data,
   closeModal: closeModal,
-  updateGraffiti: updateGraffiti
+  updateBoosterProgram: updateBoosterProgram
 })
 export const createRatingSuccess = () => ({
   type: RatingActionTypes.CREATE_RATING_SUCCESS,

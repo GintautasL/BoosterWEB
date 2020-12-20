@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import { connect } from 'react-redux'
-import { EditGraffitiPageComponent } from '.'
+import { EditBoosterProgramPageComponent } from '.'
 import { ApplicationState } from '../../../store'
 import { boosterProgramRequest } from '../../../store/boosterPrograms/actions'
 import { AdminUser } from '../../../store/users/types'
@@ -17,7 +17,7 @@ interface PropsFromState {
 
 type AllProps = PropsFromDispatch & PropsFromState
 
-const EditGraffitiPageContainerComponent: React.FunctionComponent<AllProps> = ({
+const EditBoosterProgramPageContainerComponent: React.FunctionComponent<AllProps> = ({
   boosterProgramRequest,
   boosterProgram,
 }) => {
@@ -27,7 +27,7 @@ const EditGraffitiPageContainerComponent: React.FunctionComponent<AllProps> = ({
     boosterProgramRequest(router.query.id)
   }, [])
   return (
-    <EditGraffitiPageComponent
+    <EditBoosterProgramPageComponent
     boosterProgram={boosterProgram}
     />
   )
@@ -41,7 +41,7 @@ const mapDispatchToProps = dispatch => ({
   boosterProgramRequest: id => dispatch(boosterProgramRequest(id)),
 })
 
-export const EditGraffitiPage = connect(
+export const EditBoosterProgramPage = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(EditGraffitiPageContainerComponent)
+)(EditBoosterProgramPageContainerComponent)

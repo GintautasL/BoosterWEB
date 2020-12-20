@@ -1,4 +1,4 @@
-# GraffitiTour frontend
+# Booster420 frontend
 ## Start
 npm run dev
 

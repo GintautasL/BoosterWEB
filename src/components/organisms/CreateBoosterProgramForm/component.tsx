@@ -5,15 +5,15 @@ import { getError } from '../../../utils'
 import { color } from '../../../theme'
 import { BoosterProgram } from '../../../store/boosterPrograms/types'
 
-interface CreateGraffitiFormProps {}
+interface CreateBoosterProgramFormProps {}
 
-export const CreateGraffitiFormComponent: React.FunctionComponent<
-  CreateGraffitiFormProps
+export const CreateBoosterProgramFormComponent: React.FunctionComponent<
+  CreateBoosterProgramFormProps
 > = () => {
   return (
-    <div className="create-graffiti-form-wrapper">
+    <div className="create-boosterprogram-form-wrapper">
       <h1>Create booster program</h1>
-      <Form className="create-graffiti-form">
+      <Form className="create-boosterprogram-form">
         <FormField name="starting_elo" label="Starting Elo"/>
         <FormField name="target_elo" label="Target Elo" />
         <FormField type="textarea" name="description" label="Description" />
@@ -27,7 +27,7 @@ export const CreateGraffitiFormComponent: React.FunctionComponent<
       </Form>
       <style jsx>
         {`
-          .create-graffiti-form-wrapper {
+          .create-boosterprogram-form-wrapper {
             max-width: 500px;
             width: 100%;
             border-radius: 8px;

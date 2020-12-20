@@ -7,7 +7,7 @@ interface Props {
   boosterProgram: FullBoosterProgram
 }
 
-export const EditGraffitiPageComponent: React.FunctionComponent<Props> = ({
+export const EditBoosterProgramPageComponent: React.FunctionComponent<Props> = ({
   boosterProgram,
 }) => {
   return (

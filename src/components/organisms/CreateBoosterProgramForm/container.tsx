@@ -1,7 +1,7 @@
 import React from 'react'
 import { Formik } from 'formik'
 import { connect } from 'react-redux'
-import { CreateGraffitiFormComponent } from '.'
+import { CreateBoosterProgramFormComponent } from '.'
 import { ApplicationState } from '../../../store'
 import { createBoosterProgramRequest } from '../../../store/boosterPrograms/actions'
 import { CreateBoosterProgramData } from '../../../store/boosterPrograms/types'
@@ -24,7 +24,7 @@ const initialValues = {
   thumbnail: null,
 }
 
-const CreateGraffitiFormContainerComponent: React.FunctionComponent<
+const CreateBoosterProgramFormContainerComponent: React.FunctionComponent<
   AllProps
 > = ({ createBoosterProgramRequest }) => {
   const onSubmit = async values => {
@@ -38,7 +38,7 @@ const CreateGraffitiFormContainerComponent: React.FunctionComponent<
   }
   return (
     <Formik onSubmit={onSubmit} initialValues={initialValues}>
-      <CreateGraffitiFormComponent />
+      <CreateBoosterProgramFormComponent />
     </Formik>
   )
 }
@@ -48,11 +48,11 @@ const mapStateToProps = ({ boosterProgram }: ApplicationState) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  createBoosterProgramRequest: createGraffitiData =>
-    dispatch(createBoosterProgramRequest(createGraffitiData)),
+  createBoosterProgramRequest: createBoosterProgramData =>
+    dispatch(createBoosterProgramRequest(createBoosterProgramData)),
 })
 
 export const CreateBoosterProgramForm = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(CreateGraffitiFormContainerComponent)
+)(CreateBoosterProgramFormContainerComponent)

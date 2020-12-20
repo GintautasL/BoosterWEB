@@ -17,7 +17,7 @@ interface PropsFromState {
 
 type AllProps = PropsFromDispatch & PropsFromState
 
-const ViewGraffitiPageContainerComponent: React.FunctionComponent<AllProps> = ({
+const ViewBoosterProgramPageContainerComponent: React.FunctionComponent<AllProps> = ({
   boosterProgramRequest,
   fullBoosterProgram,
 }) => {
@@ -42,7 +42,7 @@ const mapDispatchToProps = dispatch => ({
   boosterProgramRequest: id => dispatch(boosterProgramRequest(id)),
 })
 
-export const ViewGraffitiPage = connect(
+export const ViewBoosterProgramPage = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(ViewGraffitiPageContainerComponent)
+)(ViewBoosterProgramPageContainerComponent)

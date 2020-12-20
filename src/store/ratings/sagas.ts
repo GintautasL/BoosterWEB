@@ -5,13 +5,13 @@ import config from '../../config'
 import { RatingActionTypes } from './types'
 
 export function* createRatingRequest(
-  createGraffitiData,
+  createBoosterProgramData,
   closeModal,
-  updateGraffiti,
+  updateBoosterProgram,
 ) {
   try {
-    yield call(api, config.apiMethods.POST, 'ratings', createGraffitiData)
-    updateGraffiti()
+    yield call(api, config.apiMethods.POST, 'ratings', createBoosterProgramData)
+    updateBoosterProgram()
     closeModal()
     yield put(actions.createRatingSuccess())
   } catch (e) {
@@ -21,8 +21,8 @@ export function* createRatingRequest(
 }
 
 export function* watchCreateRatingRequest(props) {
-  const { data, closeModal, updateGraffiti } = props
-  yield call(createRatingRequest, data, closeModal, updateGraffiti)
+  const { data, closeModal, updateBoosterProgram } = props
+  yield call(createRatingRequest, data, closeModal, updateBoosterProgram)
 }
 
 export default function*() {

@@ -15,7 +15,7 @@ interface PropsFromState {
 
 type AllProps = PropsFromDispatch & PropsFromState
 
-const MyGraffitiesPageContainerComponent: React.FunctionComponent<AllProps> = ({
+const MyBoosterProgramsPageContainerComponent: React.FunctionComponent<AllProps> = ({
   myBoosterProgramsRequest,
   boosterPrograms,
 }) => {
@@ -33,7 +33,7 @@ const mapDispatchToProps = {
   myBoosterProgramsRequest,
 }
 
-export const MyGraffitiesPage = connect(
+export const MyBoosterProgramsPage = connect(
   mapStateToProps,
   mapDispatchToProps,
-)(MyGraffitiesPageContainerComponent)
+)(MyBoosterProgramsPageContainerComponent)

@@ -15,7 +15,7 @@ export const Footer = () => (
         </div>
       </div>
       <div className="column">
-        <h3>GraffitiTour</h3>
+        <h3>L0L B00st3r 420</h3>
         <ul>
           <li className="footer-link">
             <Link bold={false} href={pages.about.path}>

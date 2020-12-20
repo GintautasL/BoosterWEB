@@ -1,3 +1,3 @@
-import { CreateGraffitiPage } from '../src/components'
+import { CreateBoosterProgramPage } from '../src/components'
 
-export default CreateGraffitiPage
+export default CreateBoosterProgramPage

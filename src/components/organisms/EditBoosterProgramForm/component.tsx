@@ -5,16 +5,16 @@ import { FieldError } from '../../../store/general/types'
 import { getError } from '../../../utils'
 import { color } from '../../../theme'
 
-interface EditGraffitiFormProps {
+interface EditBoosterProgramFormProps {
   errors?: FieldError[]
 }
 
-export const EditGraffitiFormComponent: React.FunctionComponent<
-  EditGraffitiFormProps
+export const EditBoosterProgramFormComponent: React.FunctionComponent<
+  EditBoosterProgramFormProps
 > = ({ errors }) => {
   return (
-    <div className="graffiti-edit-form-wrapper">
-      <Form className="graffiti-edit-form">
+    <div className="boosterprogram-edit-form-wrapper">
+      <Form className="boosterprogram-edit-form">
         <FormField name="starting_elo" label="Starting Elo" />
         <FormField name="target_elo" label="Target Elo" />
         <FormField name="price" label="Price" type="number"/>
@@ -28,7 +28,7 @@ export const EditGraffitiFormComponent: React.FunctionComponent<
       </Form>
       <style jsx>
         {`
-          .graffiti-edit-form-wrapper {
+          .boosterprogram-edit-form-wrapper {
             height: max-content;
             width: 100%;
             margin: auto;
