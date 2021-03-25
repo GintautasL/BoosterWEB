@@ -42,9 +42,9 @@ class MyApp extends App<MyAppProps, {}, {}> {
 
             <Component {...pageProps} />
           </Layout>
-          <style jsx global>
+          <style jsx global>  
             {`
-            @font-face {
+            @font-face {  
               font-family: 'Overpass';
               src: url('/static/fonts/Overpass-Regular.ttf') format('truetype');
             }
@@ -58,6 +58,6 @@ class MyApp extends App<MyAppProps, {}, {}> {
       </>
     )
   }
-}
+} /// global font
 
 export default withRedux(configureStore)(MyApp)
